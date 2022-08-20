@@ -37,7 +37,7 @@ ul {
 
 li {
   display: flex;
-  padding: 16px;
+  padding: 12px 16px 16px;
   align-items: center;
   margin-bottom: 16px;
   border-radius: 4px;
@@ -46,14 +46,20 @@ li {
 }
 
 li .beacon-name input {
-  font-weight: bold;
-  font-size: 24px;
+  font-weight: 600;
+  font-size: 18px;
   border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
   margin-bottom: 8px;
 }
 
 li .beacon-name input:hover {
   background-color: #eee;
+}
+
+li .beacon-id {
+  padding-left: 8px;
 }
 
 li .status {
@@ -63,4 +69,5 @@ li .status {
 li button {
   border-radius: 100%;
   border: none;
+  margin-right: 8px;
 }

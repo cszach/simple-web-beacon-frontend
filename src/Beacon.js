@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 export default function Beacon({ data, beacons, setBeacons }) {
   const beaconName = useRef();
 
-  function editName(e) {
+  function updateName(e) {
     const beacon = beacons.filter(beacon => beacon.id === data.id)[0];
     beacon.name = beaconName.current.value;
 
@@ -19,9 +19,9 @@ export default function Beacon({ data, beacons, setBeacons }) {
     <li>
       <div>
         <div class="beacon-name">
-          <input ref={beaconName} type="text" placeholder="Add a name" value={data.name} onChange={editName} />
+          <input ref={beaconName} type="text" placeholder="Add a name" value={data.name} onUnfocus={updateName} />
         </div>
-        <div>
+        <div class="beacon-id">
           {data.id}
         </div>
       </div>

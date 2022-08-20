@@ -45,9 +45,15 @@ li {
   gap: 8px;
 }
 
-li .beacon-name {
+li .beacon-name input {
   font-weight: bold;
   font-size: 24px;
+  border: none;
+  margin-bottom: 8px;
+}
+
+li .beacon-name input:hover {
+  background-color: #eee;
 }
 
 li .status {

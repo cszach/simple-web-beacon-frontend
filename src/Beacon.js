@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 export default function Beacon({ data, beacons, setBeacons }) {
+  const beaconName = useRef();
+
+  function editName(e) {
+    const beacon = beacons.filter(beacon => beacon.id === data.id)[0];
+    beacon.name = beaconName.current.value;
+
+    setBeacons(beacons);
+  }
+
   function deleteBeacon(e) {
     const newBeacons = beacons.filter(beacon => beacon.id !== data.id)
     setBeacons(newBeacons)
@@ -10,13 +19,10 @@ export default function Beacon({ data, beacons, setBeacons }) {
     <li>
       <div>
         <div class="beacon-name">
-          {data.id.slice(0, data.id.indexOf("-"))}
+          <input ref={beaconName} type="text" placeholder="Add a name" value={data.name} onChange={editName} />
         </div>
         <div>
           {data.id}
-        </div>
-        <div>
-          {data.hidden.toString()}
         </div>
       </div>
       <div class="status">

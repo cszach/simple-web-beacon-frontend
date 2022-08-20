@@ -18,7 +18,7 @@ function App() {
     const newBeacons = [...beacons];
 
     newBeacons.forEach(beacon => {
-      if (beacon.id.indexOf(searchString) === -1) { beacon.hidden = true }
+      if (beacon.name.indexOf(searchString) === -1 && beacon.id.indexOf(searchString) === -1) { beacon.hidden = true }
       else beacon.hidden = false;
     })
 
@@ -28,7 +28,7 @@ function App() {
   return (
     <div class="container">
       <div class="controls">
-        <input ref={searchRef} type="text" placeholder="Search beacons" onChange={onSearchInputChange}/>
+        <input ref={searchRef} type="search" placeholder="Search beacons" onChange={onSearchInputChange}/>
         <button class="generate-button" onClick={generateBeacon}>+ Generate beacon</button>
       </div>
       <BeaconsList beacons={beacons} setBeacons={setBeacons} />

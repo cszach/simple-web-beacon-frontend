@@ -4,7 +4,7 @@ import axios from 'axios';
 import './App.css'
 
 async function getDataAxios(){
-  const response = await axios.get("http://127.0.0.1:1000/generateUUID")
+  const response = await axios.get("http://127.0.0.1:8080/generateUUID")
   console.log(response['data']);
   return response['data'];
 }
@@ -16,7 +16,7 @@ function App() {
   function generateBeacon(e) {
     getDataAxios().then(data => {
       setBeacons(existingBeacons => {
-        return [...existingBeacons, { id: data, activated: false, hidden: false }]
+        return [...existingBeacons, { name: "", id: data, activated: false, hidden: false }]
       });
     });
   }

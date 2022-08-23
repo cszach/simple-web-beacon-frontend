@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import BeaconsList from './BeaconsList';
 import axios from 'axios';
-// import { v4 as uuidv4 } from 'uuid';
 import './App.css'
 
 async function getDataAxios(){

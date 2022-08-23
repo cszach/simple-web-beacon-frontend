@@ -5,9 +5,8 @@ import axios from 'axios';
 import './App.css'
 
 async function getDataAxios(){
-  const response = await axios.get("http://127.0.0.1:1000/generateUUID")
-  console.log(response['data']);
-  return response['data'];
+  const response = await axios.get("https://httpbin.org/get")
+  return response['data']['url'];
 }
 
 function App() {
@@ -15,10 +14,8 @@ function App() {
   const searchRef = useRef();
 
   function generateBeacon(e) {
-    getDataAxios().then(data => {
-      setBeacons(existingBeacons => {
-        return [...existingBeacons, { id: data, activated: false, hidden: false }]
-      });
+    setBeacons(existingBeacons => {
+      return [...existingBeacons, { id: String(getDataAxios()), activated: false, hidden: false }]
     });
   }
 

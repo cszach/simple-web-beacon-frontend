@@ -6,8 +6,8 @@ import './App.css'
 
 async function getDataAxios(){
   const response = await axios.get("http://127.0.0.1:1000/generateUUID")
-  console.log(response['data']);
-  return response['data'];
+  console.log(response['data']['success']);
+  return response['data']['success'];
 }
 
 function App() {

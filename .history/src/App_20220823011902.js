@@ -1,13 +1,21 @@
 import React, { useState, useRef } from 'react';
 import BeaconsList from './BeaconsList';
-import axios from 'axios';
-// import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import './App.css'
 
-async function getDataAxios(){
-  const response = await axios.get("http://127.0.0.1:1000/generateUUID")
-  console.log(response['data']);
-  return response['data'];
+function getData(link) {
+  // create a new XMLHttpRequest
+  var xhr = new XMLHttpRequest()
+
+  // get a callback when the server responds
+  xhr.addEventListener('load', () => {
+    // update the state of the component with the result here
+    return xhr.responseText;
+  })
+  // open the request with the verb and the url
+  xhr.open('GET', link)
+  // send the request
+  xhr.send()
 }
 
 function App() {
@@ -15,10 +23,10 @@ function App() {
   const searchRef = useRef();
 
   function generateBeacon(e) {
-    getDataAxios().then(data => {
-      setBeacons(existingBeacons => {
-        return [...existingBeacons, { id: data, activated: false, hidden: false }]
-      });
+    
+
+    setBeacons(existingBeacons => {
+      return [...existingBeacons, { id: getData('https://dog.ceo/api/breeds/list/all'), activated: false, hidden: false }]
     });
   }
 

@@ -19,7 +19,7 @@ export default function Beacon({ data, beacons, setBeacons }) {
     <li>
       <div>
         <div class="beacon-name">
-          <input ref={beaconName} type="text" placeholder={new Date().toLocaleString()} value={data.name} onUnfocus={updateName} />
+          <input ref={beaconName} type="text" placeholder={new Date().toLocaleString() + ' | Click to edit...'} value={data.name} onUnfocus={updateName} />
         </div>
         <div class="beacon-id">
           {data.id}
